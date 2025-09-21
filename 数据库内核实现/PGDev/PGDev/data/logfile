@@ -1,0 +1,22 @@
+2022-03-03 14:59:12.907 CST [54011] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-03 14:59:12.909 CST [54011] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-03 14:59:12.909 CST [54011] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-03 14:59:12.909 CST [54011] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-03 14:59:12.914 CST [54012] LOG:  database system was shut down at 2022-03-03 14:59:08 CST
+2022-03-03 14:59:12.916 CST [54011] LOG:  database system is ready to accept connections
+2022-03-03 15:00:08.128 CST [54011] LOG:  received fast shutdown request
+2022-03-03 15:00:08.129 CST [54011] LOG:  aborting any active transactions
+2022-03-03 15:00:08.129 CST [54011] LOG:  background worker "logical replication launcher" (PID 54018) exited with exit code 1
+2022-03-03 15:00:08.129 CST [54013] LOG:  shutting down
+2022-03-03 15:00:08.131 CST [54011] LOG:  database system is shut down
+2022-03-03 15:00:10.847 CST [58912] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-03 15:00:10.848 CST [58912] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-03 15:00:10.848 CST [58912] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-03 15:00:10.849 CST [58912] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2022-03-03 15:00:10.853 CST [58914] LOG:  database system was shut down at 2022-03-03 15:00:08 CST
+2022-03-03 15:00:10.854 CST [58912] LOG:  database system is ready to accept connections
+2022-03-03 15:00:13.085 CST [59127] FATAL:  database "jqin" does not exist
+2022-03-03 18:55:34.232 CST [58912] LOG:  received smart shutdown request
+2022-03-03 18:55:34.234 CST [58912] LOG:  background worker "logical replication launcher" (PID 58920) exited with exit code 1
+2022-03-03 18:55:34.234 CST [58915] LOG:  shutting down
+2022-03-03 18:55:34.251 CST [58912] LOG:  database system is shut down

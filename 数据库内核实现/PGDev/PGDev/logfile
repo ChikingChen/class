@@ -1,0 +1,127 @@
+2021-03-08 01:14:56.068 CST [88561] LOG:  starting PostgreSQL 12.5 on x86_64-apple-darwin20.3.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-03-08 01:14:56.069 CST [88561] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-03-08 01:14:56.069 CST [88561] LOG:  listening on IPv6 address "::1", port 5432
+2021-03-08 01:14:56.070 CST [88561] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2021-03-08 01:14:56.079 CST [88562] LOG:  database system was shut down at 2021-03-08 01:14:47 CST
+2021-03-08 01:14:56.081 CST [88561] LOG:  database system is ready to accept connections
+2021-03-08 01:19:04.185 CST [88561] LOG:  received fast shutdown request
+2021-03-08 01:19:04.185 CST [88561] LOG:  aborting any active transactions
+2021-03-08 01:19:04.186 CST [88561] LOG:  background worker "logical replication launcher" (PID 88568) exited with exit code 1
+2021-03-08 01:19:04.186 CST [88563] LOG:  shutting down
+2021-03-08 01:19:04.191 CST [88561] LOG:  database system is shut down
+2021-03-11 14:11:29.842 CST [7011] LOG:  starting PostgreSQL 12.5 on x86_64-apple-darwin20.3.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-03-11 14:11:29.844 CST [7011] LOG:  listening on IPv6 address "::1", port 5432
+2021-03-11 14:11:29.844 CST [7011] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-03-11 14:11:29.845 CST [7011] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2021-03-11 14:11:29.865 CST [7012] LOG:  database system was interrupted; last known up at 2021-03-08 13:53:48 CST
+2021-03-11 14:11:29.999 CST [7012] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-03-11 14:11:30.003 CST [7012] LOG:  redo starts at 0/17BAA00
+2021-03-11 14:11:30.003 CST [7012] LOG:  invalid record length at 0/17BAAE8: wanted 24, got 0
+2021-03-11 14:11:30.003 CST [7012] LOG:  redo done at 0/17BAAB0
+2021-03-11 14:11:30.011 CST [7011] LOG:  database system is ready to accept connections
+2021-03-11 14:11:40.808 CST [7011] LOG:  received fast shutdown request
+2021-03-11 14:11:40.809 CST [7011] LOG:  aborting any active transactions
+2021-03-11 14:11:40.809 CST [7011] LOG:  background worker "logical replication launcher" (PID 7018) exited with exit code 1
+2021-03-11 14:11:40.809 CST [7013] LOG:  shutting down
+2021-03-11 14:11:40.813 CST [7011] LOG:  database system is shut down
+2021-03-11 14:11:43.208 CST [7035] LOG:  starting PostgreSQL 12.5 on x86_64-apple-darwin20.3.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-03-11 14:11:43.210 CST [7035] LOG:  listening on IPv6 address "::1", port 5432
+2021-03-11 14:11:43.210 CST [7035] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-03-11 14:11:43.210 CST [7035] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2021-03-11 14:11:43.219 CST [7036] LOG:  database system was shut down at 2021-03-11 14:11:40 CST
+2021-03-11 14:11:43.221 CST [7035] LOG:  database system is ready to accept connections
+2021-03-11 14:12:06.258 CST [7049] ERROR:  relation "pg_namespaces" does not exist at character 15
+2021-03-11 14:12:06.258 CST [7049] STATEMENT:  select * from pg_namespaces;
+2021-03-15 05:49:05.351 CST [34662] FATAL:  database "jqin" does not exist
+2021-03-15 05:57:43.975 CST [34668] ERROR:  syntax error at or near "select" at character 447
+2021-03-15 05:57:43.975 CST [34668] STATEMENT:  CREATE OR REPLACE FUNCTION public.pop()
+	 RETURNS SETOF tableinfo
+	 LANGUAGE plpgsql
+	AS $function$
+	declare
+		r record;
+		nr integer;
+		res TableInfo;
+	begin
+		for r in select tablename
+			 from pg_tables
+			 where schemaname = 'public'
+			 order by tablename
+		loop
+			execute 'select count(*) from '
+				||quote_ident(r.tablename) into nr;
+			res."table" := r.tablename::text;
+			res.ntuples := nr::int;
+			return next res;
+		end loop;
+		return;
+	end;
+	$function$
+	
+	select * from pg_tablespace;
+2021-03-15 14:30:52.320 CST [38411] FATAL:  database "jqin" does not exist
+2021-03-15 16:02:56.152 CST [7035] LOG:  received fast shutdown request
+2021-03-15 16:02:56.152 CST [7035] LOG:  aborting any active transactions
+2021-03-15 16:02:56.154 CST [38417] FATAL:  terminating connection due to administrator command
+2021-03-15 16:02:56.154 CST [7035] LOG:  background worker "logical replication launcher" (PID 7042) exited with exit code 1
+2021-03-15 16:02:56.155 CST [7037] LOG:  shutting down
+2021-03-15 16:02:56.167 CST [7035] LOG:  database system is shut down
+2022-03-03 14:58:10.937 CST [48765] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-03 14:58:10.938 CST [48765] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-03 14:58:10.938 CST [48765] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-03 14:58:10.938 CST [48765] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-03-03 14:58:10.942 CST [48766] LOG:  database system was shut down at 2022-03-03 14:57:57 CST
+2022-03-03 14:58:10.943 CST [48765] LOG:  database system is ready to accept connections
+2022-03-03 14:59:08.157 CST [48765] LOG:  received fast shutdown request
+2022-03-03 14:59:08.157 CST [48765] LOG:  aborting any active transactions
+2022-03-03 14:59:08.158 CST [48765] LOG:  background worker "logical replication launcher" (PID 48772) exited with exit code 1
+2022-03-03 14:59:08.158 CST [48767] LOG:  shutting down
+2022-03-03 14:59:08.161 CST [48765] LOG:  database system is shut down
+2022-03-20 06:38:31.298 CST [2613] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-20 06:38:31.300 CST [2613] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-20 06:38:31.300 CST [2613] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-20 06:38:31.301 CST [2613] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2022-03-20 06:38:31.309 CST [2614] LOG:  database system was shut down at 2022-03-20 06:37:28 CST
+2022-03-20 06:38:31.311 CST [2613] LOG:  database system is ready to accept connections
+2022-03-21 14:32:34.827 CST [2613] LOG:  received fast shutdown request
+2022-03-21 14:32:34.828 CST [2613] LOG:  aborting any active transactions
+2022-03-21 14:32:34.828 CST [5047] FATAL:  terminating connection due to administrator command
+2022-03-21 14:32:34.830 CST [2613] LOG:  background worker "logical replication launcher" (PID 2620) exited with exit code 1
+2022-03-21 14:32:34.831 CST [2615] LOG:  shutting down
+2022-03-21 14:32:34.836 CST [2613] LOG:  database system is shut down
+2022-03-21 17:05:54.087 CST [10240] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-21 17:05:54.090 CST [10240] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-21 17:05:54.090 CST [10240] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-21 17:05:54.091 CST [10240] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2022-03-21 17:05:54.100 CST [10243] LOG:  database system was shut down at 2022-03-21 14:32:34 CST
+2022-03-21 17:05:54.104 CST [10240] LOG:  database system is ready to accept connections
+2022-03-21 18:35:19.781 CST [10240] LOG:  received fast shutdown request
+2022-03-21 18:35:19.781 CST [10240] LOG:  aborting any active transactions
+2022-03-21 18:35:19.782 CST [10240] LOG:  background worker "logical replication launcher" (PID 10252) exited with exit code 1
+2022-03-21 18:35:19.782 CST [10246] LOG:  shutting down
+2022-03-21 18:35:19.785 CST [10240] LOG:  database system is shut down
+2022-03-21 19:19:43.088 CST [71977] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-21 19:19:43.090 CST [71977] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-21 19:19:43.090 CST [71977] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-21 19:19:43.090 CST [71977] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2022-03-21 19:19:43.094 CST [71981] LOG:  database system was shut down at 2022-03-21 19:18:57 CST
+2022-03-21 19:19:43.095 CST [71977] LOG:  database system is ready to accept connections
+2022-03-21 21:20:10.661 CST [52273] FATAL:  lock file "postmaster.pid" already exists
+2022-03-21 21:20:10.661 CST [52273] HINT:  Is another postmaster (PID 71977) running in data directory "/Users/jqin/PGDev/target-debug/../data"?
+2022-03-21 21:20:16.255 CST [71977] LOG:  received fast shutdown request
+2022-03-21 21:20:16.255 CST [71977] LOG:  aborting any active transactions
+2022-03-21 21:20:16.256 CST [71977] LOG:  background worker "logical replication launcher" (PID 71987) exited with exit code 1
+2022-03-21 21:20:16.256 CST [71982] LOG:  shutting down
+2022-03-21 21:20:16.258 CST [71977] LOG:  database system is shut down
+2022-03-21 21:20:19.329 CST [53104] LOG:  starting PostgreSQL 12.5 on arm-apple-darwin21.3.0, compiled by Apple clang version 13.0.0 (clang-1300.0.29.30), 64-bit
+2022-03-21 21:20:19.332 CST [53104] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-03-21 21:20:19.333 CST [53104] LOG:  listening on IPv6 address "::1", port 5432
+2022-03-21 21:20:19.333 CST [53104] LOG:  listening on Unix socket "/Users/jqin/PGDev/target-debug/../data/.s.PGSQL.5432"
+2022-03-21 21:20:19.337 CST [53105] LOG:  database system was shut down at 2022-03-21 21:20:16 CST
+2022-03-21 21:20:19.338 CST [53104] LOG:  database system is ready to accept connections
+2022-03-23 09:17:36.734 CST [54488] LOG:  could not send data to client: Broken pipe
+2022-03-23 09:17:36.734 CST [54488] FATAL:  connection to client lost
+2022-03-23 19:58:33.927 CST [53104] LOG:  received smart shutdown request
+2022-03-23 19:58:33.929 CST [53104] LOG:  background worker "logical replication launcher" (PID 53111) exited with exit code 1
+2022-03-23 19:58:33.929 CST [53106] LOG:  shutting down
+2022-03-23 19:58:33.949 CST [53104] LOG:  database system is shut down
